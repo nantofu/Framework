@@ -4,17 +4,7 @@
             "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/da14d0a8e18b5d5bb2aec8d68a2f3273/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/119cee397fff4853bc5ee41a4152faf0/res/values-v16/values-v16.xml",
+                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/c3eb881d8cef5258d3cedac918d94d1c/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4c061176ef636da98039d5a2759e061e/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

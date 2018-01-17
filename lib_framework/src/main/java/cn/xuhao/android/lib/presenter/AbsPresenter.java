@@ -10,7 +10,6 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
 import cn.xuhao.android.lib.UIStuff;
-import cn.xuhao.android.lib.http.PaxOk;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
 import cn.xuhao.android.lib.observer.action.IActionObservable;
 import cn.xuhao.android.lib.observer.action.IActionObserver;
@@ -18,8 +17,6 @@ import cn.xuhao.android.lib.observer.lifecycle.IComponentLifecycleObserver;
 import cn.xuhao.android.lib.observer.lifecycle.ILifecycleObservable;
 import cn.xuhao.android.lib.observer.lifecycle.ILifecycleObserver;
 import cn.xuhao.android.lib.observer.lifecycle.LifecycleObserverCompat;
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * @author xuhao
@@ -29,8 +26,6 @@ public abstract class AbsPresenter<T extends IBaseView>
         implements IComponentLifecycleObserver, ILifecycleObservable, IActionObservable, UIStuff, IActionObserver {
 
     protected T mView;
-
-    private CompositeSubscription compositeSubscription;
 
     private LifecycleObserverCompat mLifeObserverCompat;
 
@@ -112,8 +107,6 @@ public abstract class AbsPresenter<T extends IBaseView>
     public void onDestroy() {
         removeAttachViewActionObserver();
         mLifeObserverCompat.onDestroy();
-        unSubscribe();
-        PaxOk.getInstance().cancelTag(this);
     }
 
     private void addAttachViewActionObserver() {
@@ -160,19 +153,6 @@ public abstract class AbsPresenter<T extends IBaseView>
             return "";
         }
         return getContext().getString(resId, args);
-    }
-
-    public final void addSubscribe(Subscription subscription) {
-        if (compositeSubscription == null) {
-            compositeSubscription = new CompositeSubscription();
-        }
-        compositeSubscription.add(subscription);
-    }
-
-    public final void unSubscribe() {
-        if (compositeSubscription != null) {
-            compositeSubscription.unsubscribe();
-        }
     }
 
     @Override

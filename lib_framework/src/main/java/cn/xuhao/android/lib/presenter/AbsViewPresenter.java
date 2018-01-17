@@ -5,10 +5,7 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 
-import cn.xuhao.android.lib.http.PaxOk;
 import cn.xuhao.android.lib.observer.lifecycle.ILifecycleObserver;
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by xuhao on 2017/4/19.
@@ -17,8 +14,6 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class AbsViewPresenter<T extends IBaseView> implements ILifecycleObserver {
 
     protected T mView;
-
-    private CompositeSubscription compositeSubscription;
 
     public AbsViewPresenter(@NonNull T view) {
         mView = view;
@@ -34,8 +29,6 @@ public abstract class AbsViewPresenter<T extends IBaseView> implements ILifecycl
     @Override
     @CallSuper
     public void onDestroy() {
-        unSubscribe();
-        PaxOk.getInstance().cancelTag(this);
     }
 
     public boolean isViewAttached() {
@@ -61,16 +54,4 @@ public abstract class AbsViewPresenter<T extends IBaseView> implements ILifecycl
         return getContext().getString(resId, args);
     }
 
-    public void addSubscribe(Subscription subscription) {
-        if (compositeSubscription == null) {
-            compositeSubscription = new CompositeSubscription();
-        }
-        compositeSubscription.add(subscription);
-    }
-
-    public void unSubscribe() {
-        if (compositeSubscription != null) {
-            compositeSubscription.unsubscribe();
-        }
-    }
 }

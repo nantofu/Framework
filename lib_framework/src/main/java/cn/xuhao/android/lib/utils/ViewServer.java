@@ -43,69 +43,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-/**
- * <p>This class can be used to enable the use of HierarchyViewer inside an
- * application. HierarchyViewer is an Android SDK tool that can be used
- * to inspect and debug the user interface of running applications. For
- * security reasons, HierarchyViewer does not work on production builds
- * (for instance phones bought in store.) By using this class, you can
- * make HierarchyViewer work on any device. You must be very careful
- * however to only enable HierarchyViewer when debugging your
- * application.</p>
- * <p/>
- * <p>To use this view server, your application must require the INTERNET
- * permission.</p>
- * <p/>
- * <p>The recommended way to use this API is to register activities when
- * they are created, and to unregister them when they get destroyed:</p>
- * <p/>
- * <pre>
- * public class MyActivity extends Activity {
- *     public void onCreate(Bundle savedInstanceState) {
- *         super.onCreate(savedInstanceState);
- *         // Set content view, etc.
- *         ViewServer.get(this).addWindow(this);
- *     }
- *
- *     public void onDestroy() {
- *         super.onDestroy();
- *         ViewServer.get(this).removeWindow(this);
- *     }
- *
- *     public void onResume() {
- *         super.onResume();
- *         ViewServer.get(this).setFocusedWindow(this);
- *     }
- * }
- * </pre>
- * <p/>
- * <p>
- * In a similar fashion, you can use this API with an InputMethodService:
- * </p>
- * <p/>
- * <pre>
- * public class MyInputMethodService extends InputMethodService {
- *     public void onCreate() {
- *         super.onCreate();
- *         View decorView = getWindow().getWindow().getDecorView();
- *         String name = "MyInputMethodService";
- *         ViewServer.get(this).addWindow(decorView, name);
- *     }
- *
- *     public void onDestroy() {
- *         super.onDestroy();
- *         View decorView = getWindow().getWindow().getDecorView();
- *         ViewServer.get(this).removeWindow(decorView);
- *     }
- *
- *     public void onStartInput(EditorInfo attribute, boolean restarting) {
- *         super.onStartInput(attribute, restarting);
- *         View decorView = getWindow().getWindow().getDecorView();
- *         ViewServer.get(this).setFocusedWindow(decorView);
- *     }
- * }
- * </pre>
- */
 public class ViewServer implements Runnable {
     /**
      * The default port used to start view servers.
