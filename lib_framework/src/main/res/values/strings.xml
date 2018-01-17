@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">lib</string>
+    <string name="progress_hint_text">正在加载,请稍候...</string>
+</resources>
