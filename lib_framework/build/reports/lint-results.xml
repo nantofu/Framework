@@ -136,7 +136,7 @@
         quickfix="studio">
         <location
             file="/Users/xuhao/Documents/publish_project/framework/lib_framework/build.gradle"
-            line="8"
+            line="7"
             column="9"/>
     </issue>
 
@@ -152,7 +152,7 @@
         errorLine2="                                        ^">
         <location
             file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/ViewServer.java"
-            line="551"
+            line="488"
             column="41"/>
     </issue>
 
@@ -193,38 +193,6 @@
     <issue
         id="ObsoleteSdkInt"
         severity="Warning"
-        message="Unnecessary; SDK_INT is always >= 19"
-        category="Performance"
-        priority="6"
-        summary="Obsolete SDK_INT Version Check"
-        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
-        errorLine1="        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java"
-            line="334"
-            column="13"/>
-    </issue>
-
-    <issue
-        id="ObsoleteSdkInt"
-        severity="Warning"
-        message="Unnecessary; SDK_INT is always >= 19"
-        category="Performance"
-        priority="6"
-        summary="Obsolete SDK_INT Version Check"
-        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
-        errorLine1="                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {"
-        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java"
-            line="706"
-            column="21"/>
-    </issue>
-
-    <issue
-        id="ObsoleteSdkInt"
-        severity="Warning"
         message="This folder configuration (`v19`) is unnecessary; `minSdkVersion` is 19. Merge all the resources in this folder into `values`."
         category="Performance"
         priority="6"
@@ -246,8 +214,25 @@
         errorLine2="            ~~~~~~">
         <location
             file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/ViewServer.java"
-            line="150"
+            line="87"
             column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.array.WheelArrayDefault` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;WheelArrayDefault&quot;>"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/arrays_wheel.xml"
+            line="3"
+            column="19"/>
     </issue>
 
     <issue
@@ -298,6 +283,57 @@
         <location
             file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/colors.xml"
             line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.WheelItemTextSize` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;dimen name=&quot;WheelItemTextSize&quot;>24sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.WheelItemSpace` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;dimen name=&quot;WheelItemSpace&quot;>12dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.WheelIndicatorSize` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;dimen name=&quot;WheelIndicatorSize&quot;>2dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            line="5"
             column="12"/>
     </issue>
 
@@ -424,22 +460,6 @@
             file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/strings.xml"
             line="3"
             column="39"/>
-    </issue>
-
-    <issue
-        id="ClickableViewAccessibility"
-        severity="Warning"
-        message="Custom view `WheelPicker` overrides `onTouchEvent` but not `performClick`"
-        category="Accessibility"
-        priority="6"
-        summary="Accessibility in Custom Views"
-        explanation="If a `View` that overrides `onTouchEvent` or uses an `OnTouchListener` does not also implement `performClick` and call it when clicks are detected, the `View` may not handle accessibility actions properly. Logic handling the click actions should ideally be placed in `View#performClick` as some accessibility services invoke `performClick` when a click action should occur."
-        errorLine1="    public boolean onTouchEvent(MotionEvent event) {"
-        errorLine2="                   ~~~~~~~~~~~~">
-        <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java"
-            line="673"
-            column="20"/>
     </issue>
 
     <issue

@@ -14,21 +14,6 @@
                     }
                 }
             ]
-        },
-        {
-            "outputFile": "/Users/xuhao/Documents/publish_project/lib_framework/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v18/values-v18.xml",
-            "map": [
-                {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/119cee397fff4853bc5ee41a4152faf0/res/values-v18/values-v18.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "48",
-                        "endOffsets": "99"
-                    }
-                }
-            ]
         }
     ]
 }

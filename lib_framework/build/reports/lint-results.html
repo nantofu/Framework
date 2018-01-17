@@ -173,10 +173,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 5 errors and 24 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 5 errors and 25 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Wed Jan 17 21:59:29 CST 2018      </nav>
+Check performed at Thu Jan 18 00:44:27 CST 2018      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -189,11 +189,10 @@ Check performed at Wed Jan 17 21:59:29 CST 2018      </nav>
       <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (1)</a>
       <a class="mdl-navigation__link" href="#PrivateApi"><i class="material-icons warning-icon">warning</i>Using Private APIs (1)</a>
       <a class="mdl-navigation__link" href="#InflateParams"><i class="material-icons warning-icon">warning</i>Layout Inflation without a Parent (1)</a>
-      <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (4)</a>
+      <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (2)</a>
       <a class="mdl-navigation__link" href="#StaticFieldLeak"><i class="material-icons warning-icon">warning</i>Static Field Leaks (1)</a>
-      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (9)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (13)</a>
       <a class="mdl-navigation__link" href="#TypographyEllipsis"><i class="material-icons warning-icon">warning</i>Ellipsis string can be replaced with ellipsis character (1)</a>
-      <a class="mdl-navigation__link" href="#ClickableViewAccessibility"><i class="material-icons warning-icon">warning</i>Accessibility in Custom Views (1)</a>
       <a class="mdl-navigation__link" href="#RtlHardcoded"><i class="material-icons warning-icon">warning</i>Using left/right instead of start/end attributes (3)</a>
     </nav>
   </div>
@@ -230,24 +229,19 @@ Check performed at Wed Jan 17 21:59:29 CST 2018      </nav>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
 </td></tr>
 <tr>
-<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#ObsoleteSdkInt">ObsoleteSdkInt</a>: Obsolete SDK_INT Version Check</td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#StaticFieldLeak">StaticFieldLeak</a>: Static Field Leaks</td></tr>
 <tr>
-<td class="countColumn">9</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">13</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Typography">Usability:Typography</a>
 </td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#TypographyEllipsis">TypographyEllipsis</a>: Ellipsis string can be replaced with ellipsis character</td></tr>
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Accessibility">Accessibility</a>
-</td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#ClickableViewAccessibility">ClickableViewAccessibility</a>: Accessibility in Custom Views</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization:Bidirectional Text">Internationalization:Bidirectional Text</a>
 </td></tr>
 <tr>
@@ -456,16 +450,16 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:8</span>: <span class="message">Not targeting the latest versions of Android; compatibility <br/>
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:7</span>: <span class="message">Not targeting the latest versions of Android; compatibility <br/>
 modes apply. Consider testing and updating this version. <br/>
 Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
-<span class="lineno">  5 </span>    compileSdkVersion <span class="number">26</span>
-<span class="lineno">  6 </span>    defaultConfig {
-<span class="lineno">  7 </span>        minSdkVersion <span class="number">19</span>
-<span class="caretline"><span class="lineno">  8 </span>        <span class="warning">targetSdkVersion <span class="number">26</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  9 </span>        versionCode <span class="number">1</span>
-<span class="lineno"> 10 </span>        versionName <span class="string">"1.0"</span>
-<span class="lineno"> 11 </span>    }
+<span class="lineno">  4 </span>    compileSdkVersion <span class="number">26</span>
+<span class="lineno">  5 </span>    defaultConfig {
+<span class="lineno">  6 </span>        minSdkVersion <span class="number">19</span>
+<span class="caretline"><span class="lineno">  7 </span>        <span class="warning">targetSdkVersion <span class="number">26</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  8 </span>        versionCode <span class="number">1</span>
+<span class="lineno">  9 </span>        versionName <span class="string">"1.0"</span>
+<span class="lineno"> 10 </span>    }
 </pre>
 
 </div>
@@ -507,14 +501,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java">../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java</a>:551</span>: <span class="message">Accessing internal APIs via reflection is not supported and may not work on all devices or in the future</span><br /><pre class="errorlines">
-<span class="lineno"> 548 </span>      }
-<span class="lineno"> 549 </span>
-<span class="lineno"> 550 </span>      <span class="comment">// call stuff</span>
-<span class="caretline"><span class="lineno"> 551 </span>      <span class="keyword">final</span> Method dispatch = <span class="warning">ViewDebug.<span class="keyword">class</span>.getDeclaredMethod(<span class="string">"dispatchCommand"</span>,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 552 </span>              View.<span class="keyword">class</span>, String.<span class="keyword">class</span>, String.<span class="keyword">class</span>, OutputStream.<span class="keyword">class</span>);
-<span class="lineno"> 553 </span>      dispatch.setAccessible(<span class="keyword">true</span>);
-<span class="lineno"> 554 </span>      dispatch.invoke(<span class="keyword">null</span>, window, command, parameters,
+<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java">../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java</a>:488</span>: <span class="message">Accessing internal APIs via reflection is not supported and may not work on all devices or in the future</span><br /><pre class="errorlines">
+<span class="lineno"> 485 </span>      }
+<span class="lineno"> 486 </span>
+<span class="lineno"> 487 </span>      <span class="comment">// call stuff</span>
+<span class="caretline"><span class="lineno"> 488 </span>      <span class="keyword">final</span> Method dispatch = <span class="warning">ViewDebug.<span class="keyword">class</span>.getDeclaredMethod(<span class="string">"dispatchCommand"</span>,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 489 </span>              View.<span class="keyword">class</span>, String.<span class="keyword">class</span>, String.<span class="keyword">class</span>, OutputStream.<span class="keyword">class</span>);
+<span class="lineno"> 490 </span>      dispatch.setAccessible(<span class="keyword">true</span>);
+<span class="lineno"> 491 </span>      dispatch.invoke(<span class="keyword">null</span>, window, command, parameters,
 </pre>
 
 </div>
@@ -610,25 +604,6 @@ Dismiss</button>            </div>
 <span class="lineno"> 374 </span>            <span class="keyword">return</span> mIsDestory;
 </pre>
 
-<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java">../../src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java</a>:334</span>: <span class="message">Unnecessary; SDK_INT is always >= 19</span><br /><pre class="errorlines">
-<span class="lineno">  331 </span>
-<span class="lineno">  332 </span>        mScroller = <span class="keyword">new</span> Scroller(getContext());
-<span class="lineno">  333 </span>
-<span class="caretline"><span class="lineno">  334 </span>        <span class="keyword">if</span> (<span class="warning">Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT</span>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  335 </span>            ViewConfiguration conf = ViewConfiguration.get(getContext());
-<span class="lineno">  336 </span>            mMinimumVelocity = conf.getScaledMinimumFlingVelocity();
-<span class="lineno">  337 </span>            mMaximumVelocity = conf.getScaledMaximumFlingVelocity();
-</pre>
-
-<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java">../../src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java</a>:706</span>: <span class="message">Unnecessary; SDK_INT is always >= 19</span><br /><pre class="errorlines">
-<span class="lineno">  703 </span>                <span class="keyword">if</span> (isClick) { <span class="keyword">break</span>; }
-<span class="lineno">  704 </span>                mTracker.addMovement(event);
-<span class="lineno">  705 </span>
-<span class="caretline"><span class="lineno">  706 </span>                <span class="keyword">if</span> (<span class="warning">Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT</span>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  707 </span>                    mTracker.computeCurrentVelocity(<span class="number">1000</span>, mMaximumVelocity);
-<span class="lineno">  708 </span>                } <span class="keyword">else</span> { mTracker.computeCurrentVelocity(<span class="number">1000</span>); }
-</pre>
-
 <span class="location"><a href="../../src/main/res/values-v19">../../src/main/res/values-v19</a></span>: <span class="message">This folder configuration (<code>v19</code>) is unnecessary; <code>minSdkVersion</code> is 19. Merge all the resources in this folder into <code>values</code>.</span><br />
 </div>
 <div class="metadata"><div class="explanation" id="explanationObsoleteSdkInt" style="display: none;">
@@ -667,14 +642,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java">../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java</a>:150</span>: <span class="message">Do not place Android context classes in static fields (static reference to <code>ViewServer</code> which has field <code>mFocusedWindow</code> pointing to <code>View</code>); this is a memory leak (and also breaks Instant Run)</span><br /><pre class="errorlines">
-<span class="lineno"> 147 </span>    <span class="keyword">private</span> View mFocusedWindow;
-<span class="lineno"> 148 </span>    <span class="keyword">private</span> <span class="keyword">final</span> ReentrantReadWriteLock mFocusLock = <span class="keyword">new</span> ReentrantReadWriteLock();
-<span class="lineno"> 149 </span>
-<span class="caretline"><span class="lineno"> 150 </span>    <span class="keyword">private</span> <span class="warning"><span class="keyword">static</span></span> ViewServer sServer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 151 </span>
-<span class="lineno"> 152 </span>    <span class="javadoc">/**
-</span><span class="lineno"> 153 </span><span class="javadoc">     * Returns a unique instance of the ViewServer. This method should only be
+<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java">../../src/main/java/cn/xuhao/android/lib/utils/ViewServer.java</a>:87</span>: <span class="message">Do not place Android context classes in static fields (static reference to <code>ViewServer</code> which has field <code>mFocusedWindow</code> pointing to <code>View</code>); this is a memory leak (and also breaks Instant Run)</span><br /><pre class="errorlines">
+<span class="lineno">  84 </span>    <span class="keyword">private</span> View mFocusedWindow;
+<span class="lineno">  85 </span>    <span class="keyword">private</span> <span class="keyword">final</span> ReentrantReadWriteLock mFocusLock = <span class="keyword">new</span> ReentrantReadWriteLock();
+<span class="lineno">  86 </span>
+<span class="caretline"><span class="lineno">  87 </span>    <span class="keyword">private</span> <span class="warning"><span class="keyword">static</span></span> ViewServer sServer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  88 </span>
+<span class="lineno">  89 </span>    <span class="javadoc">/**
+</span><span class="lineno">  90 </span><span class="javadoc">     * Returns a unique instance of the ViewServer. This method should only be
 </span></pre>
 
 </div>
@@ -718,6 +693,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
+<span class="location"><a href="../../src/main/res/values/arrays_wheel.xml">../../src/main/res/values/arrays_wheel.xml</a>:3</span>: <span class="message">The resource <code>R.array.WheelArrayDefault</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="lineno">  2 </span><span class="tag">&lt;resources></span>
+<span class="caretline"><span class="lineno">  3 </span>    <span class="tag">&lt;string-array</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"WheelArrayDefault"</span></span>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  4 </span>        <span class="tag">&lt;item></span>AigeStudio<span class="tag">&lt;/item></span>
+<span class="lineno">  5 </span>        <span class="tag">&lt;item></span>Aige<span class="tag">&lt;/item></span>
+<span class="lineno">  6 </span>        <span class="tag">&lt;item></span>爱哥<span class="tag">&lt;/item></span></pre>
+
 <span class="location"><a href="../../src/main/res/values/arrays_wheel.xml">../../src/main/res/values/arrays_wheel.xml</a>:29</span>: <span class="message">The resource <code>R.array.WheelArrayWeek</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 26 </span>        <span class="tag">&lt;item></span>a szerelem.<span class="tag">&lt;/item></span>
 <span class="lineno"> 27 </span>        <span class="tag">&lt;item></span>Amore, fratello.<span class="tag">&lt;/item></span>
@@ -744,6 +727,33 @@ Dismiss</button>            </div>
 <span class="lineno"> 6 </span>
 <span class="lineno"> 7 </span><span class="tag">&lt;/resources></span></pre>
 
+<span class="location"><a href="../../src/main/res/values/dimens_wheel.xml">../../src/main/res/values/dimens_wheel.xml</a>:3</span>: <span class="message">The resource <code>R.dimen.WheelItemTextSize</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="lineno"> 2 </span><span class="tag">&lt;resources></span>
+<span class="caretline"><span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"WheelItemTextSize"</span></span>>24sp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelItemSpace"</span>>12dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 5 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelIndicatorSize"</span>>2dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 6 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelMargins"</span>>8dp<span class="tag">&lt;/dimen></span></pre>
+
+<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 8 More Occurrences...</button>
+<div id="UnusedResourcesDiv" style="display: none">
+<span class="location"><a href="../../src/main/res/values/dimens_wheel.xml">../../src/main/res/values/dimens_wheel.xml</a>:4</span>: <span class="message">The resource <code>R.dimen.WheelItemSpace</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="lineno"> 2 </span><span class="tag">&lt;resources></span>
+<span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelItemTextSize"</span>>24sp<span class="tag">&lt;/dimen></span>
+<span class="caretline"><span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"WheelItemSpace"</span></span>>12dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 5 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelIndicatorSize"</span>>2dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 6 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelMargins"</span>>8dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 7 </span><span class="tag">&lt;/resources></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/dimens_wheel.xml">../../src/main/res/values/dimens_wheel.xml</a>:5</span>: <span class="message">The resource <code>R.dimen.WheelIndicatorSize</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 2 </span><span class="tag">&lt;resources></span>
+<span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelItemTextSize"</span>>24sp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelItemSpace"</span>>12dp<span class="tag">&lt;/dimen></span>
+<span class="caretline"><span class="lineno"> 5 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"WheelIndicatorSize"</span></span>>2dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 6 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelMargins"</span>>8dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 7 </span><span class="tag">&lt;/resources></span></pre>
+
 <span class="location"><a href="../../src/main/res/values/dimens_wheel.xml">../../src/main/res/values/dimens_wheel.xml</a>:6</span>: <span class="message">The resource <code>R.dimen.WheelMargins</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelItemTextSize"</span>>24sp<span class="tag">&lt;/dimen></span>
 <span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"WheelItemSpace"</span>>12dp<span class="tag">&lt;/dimen></span>
@@ -760,14 +770,12 @@ Dismiss</button>            </div>
 <span class="lineno">  6 </span>    <span class="tag">&lt;style</span><span class="attribute"> name</span>=<span class="value">"translate"</span> <span class="attribute">parent</span>=<span class="value">"@android:style/Animation.Activity"</span>>
 </pre>
 
-<ul></ul><button id="Location5DivLink" onclick="reveal('Location5Div');" />+ 1 Additional Locations...</button>
-<div id="Location5Div" style="display: none">
+<ul></ul><button id="Location9DivLink" onclick="reveal('Location9Div');" />+ 1 Additional Locations...</button>
+<div id="Location9Div" style="display: none">
 Additional locations: <ul>
 <li> <span class="location"><a href="../../src/main/res/values-v19/styles.xml">../../src/main/res/values-v19/styles.xml</a>:4</span>
 </ul>
 </div><br/><br/>
-<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 4 More Occurrences...</button>
-<div id="UnusedResourcesDiv" style="display: none">
 <span class="location"><a href="../../src/main/res/values/styles.xml">../../src/main/res/values/styles.xml</a>:6</span>: <span class="message">The resource <code>R.style.translate</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">  3 </span>    <span class="tag">&lt;style</span><span class="attribute"> name</span>=<span class="value">"FrameworkBaseTheme"</span> <span class="attribute">parent</span>=<span class="value">"Theme.AppCompat.Light.NoActionBar"</span>>
 <span class="lineno">  4 </span>    <span class="tag">&lt;/style></span>
@@ -879,53 +887,6 @@ To suppress this error, use the issue id "TypographyEllipsis" as explained in th
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationTypographyEllipsisLink" onclick="reveal('explanationTypographyEllipsis');">
 Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="TypographyEllipsisCardLink" onclick="hideid('TypographyEllipsisCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
-<a name="Accessibility"></a>
-<a name="ClickableViewAccessibility"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ClickableViewAccessibilityCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Accessibility in Custom Views</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java">../../src/main/java/cn/xuhao/android/lib/widget/wheel/WheelPicker.java</a>:673</span>: <span class="message">Custom view <code>WheelPicker</code> overrides <code>onTouchEvent</code> but not <code>performClick</code></span><br /><pre class="errorlines">
-<span class="lineno">  670 </span>  }
-<span class="lineno">  671 </span>
-<span class="lineno">  672 </span>  <span class="annotation">@Override</span>
-<span class="caretline"><span class="lineno">  673 </span>  <span class="keyword">public</span> <span class="keyword">boolean</span> <span class="warning">onTouchEvent</span>(MotionEvent event) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  674 </span>      <span class="keyword">switch</span> (event.getAction()) {
-<span class="lineno">  675 </span>          <span class="keyword">case</span> MotionEvent.ACTION_DOWN:
-<span class="lineno">  676 </span>              <span class="keyword">if</span> (<span class="keyword">null</span> != getParent()) { getParent().requestDisallowInterceptTouchEvent(<span class="keyword">true</span>); }
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationClickableViewAccessibility" style="display: none;">
-If a <code>View</code> that overrides <code>onTouchEvent</code> or uses an <code>OnTouchListener</code> does not also implement <code>performClick</code> and call it when clicks are detected, the <code>View</code> may not handle accessibility actions properly. Logic handling the click actions should ideally be placed in <code>View#performClick</code> as some accessibility services invoke <code>performClick</code> when a click action should occur.<br/>To suppress this error, use the issue id "ClickableViewAccessibility" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">ClickableViewAccessibility</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Accessibility</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 6/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationClickableViewAccessibilityLink" onclick="reveal('explanationClickableViewAccessibility');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ClickableViewAccessibilityCardLink" onclick="hideid('ClickableViewAccessibilityCard');">
 Dismiss</button>            </div>
             </div>
           </section>

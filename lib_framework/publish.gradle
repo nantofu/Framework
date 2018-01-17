@@ -34,13 +34,27 @@ task sourcesJar(type: Jar) {
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    //下面两句，如果你的项目中有中文注解，最好加上，否则上传可能报错，最后的建议是全部加上
+    options.encoding "UTF-8"
+    options.charSet 'UTF-8'
+    options.author true
+    options.version true
+    options.links "https://github.com/linglongxin24/FastDev/tree/master/mylibrary/docs/javadoc"
+    //如果上传报错找到什么suppert-v4什么的，需要加上这句，最后的建议是全部加上
+    failOnError false
 }
+
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
+
+group = project.GROUP_ID
+version = project.VERSION
+
 artifacts {
     archives sourcesJar
+    archives javadocJar
 }
 
 bintray {
@@ -51,7 +65,7 @@ bintray {
     override = true
     pkg {
         repo = 'maven'
-        name = project.ARTIFACT_ID
+        name = project.NAME
         description = "Android developer framework"
         publish = true
         publicDownloadNumbers = true

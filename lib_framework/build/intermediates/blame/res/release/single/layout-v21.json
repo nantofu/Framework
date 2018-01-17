@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/Users/xuhao/Documents/SQYC_git_project/android-framework/lib_framework/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/xuhao/.android/build-cache/77071a48d5be31e517d6e8d43feb5b04b42f39cc/output/res/layout-v21/notification_template_icon_group.xml"
-    },
-    {
-        "merged": "/Users/xuhao/Documents/SQYC_git_project/android-framework/lib_framework/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/xuhao/.android/build-cache/77071a48d5be31e517d6e8d43feb5b04b42f39cc/output/res/layout-v21/notification_template_custom_big.xml"
-    },
-    {
         "merged": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
         "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/e03ec7271e8060a07f16d80104da9628/res/layout-v21/notification_action.xml"
     },
@@ -20,15 +12,7 @@
         "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/e03ec7271e8060a07f16d80104da9628/res/layout-v21/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/xuhao/Documents/SQYC_git_project/android-framework/lib_framework/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
-        "source": "/Users/xuhao/.android/build-cache/77071a48d5be31e517d6e8d43feb5b04b42f39cc/output/res/layout-v21/notification_action.xml"
-    },
-    {
         "merged": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
         "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/e03ec7271e8060a07f16d80104da9628/res/layout-v21/notification_template_custom_big.xml"
-    },
-    {
-        "merged": "/Users/xuhao/Documents/SQYC_git_project/android-framework/lib_framework/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/xuhao/.android/build-cache/77071a48d5be31e517d6e8d43feb5b04b42f39cc/output/res/layout-v21/notification_action_tombstone.xml"
     }
 ]

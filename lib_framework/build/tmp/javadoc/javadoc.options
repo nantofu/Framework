@@ -1,8 +1,13 @@
+-author 
+-charset 'UTF-8'
 -classpath '/Users/xuhao/Library/Android/sdk/platforms/android-26/android.jar'
 -d '/Users/xuhao/Documents/publish_project/framework/lib_framework/build/docs/javadoc'
--doctitle 'lib_framework API'
+-doctitle 'lib_framework 1.0.0 API'
+-encoding 'UTF-8'
+-link 'https://github.com/linglongxin24/FastDev/tree/master/mylibrary/docs/javadoc'
 -quiet 
--windowtitle 'lib_framework API'
+-version 
+-windowtitle 'lib_framework 1.0.0 API'
 '/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/activity/ActivityStack.java'
 '/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/activity/BaseActivity.java'
 '/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/activity/BaseActivityWithUIStuff.java'
