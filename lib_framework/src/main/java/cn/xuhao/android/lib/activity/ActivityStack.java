@@ -3,12 +3,12 @@ package cn.xuhao.android.lib.activity;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.xuhao.android.lib.utils.L;
 
 /**
  * Created by xuhao on 2017/7/6.
@@ -17,7 +17,13 @@ import cn.xuhao.android.lib.utils.L;
 public class ActivityStack {
     private static boolean finishCallFromSelf = false;
 
-    private final static List<AppCompatActivity> STACK = new ArrayList<>();
+    private static boolean isDebug;
+
+    private static boolean isBackground = false;
+
+    private final static List<Activity> INSTANCE_STACK = new ArrayList<>();
+
+    private final static List<Activity> RESUME_LIST = new ArrayList<>();
 
     private final static List<OnStackChangedListener> LISTENERS = new ArrayList<>();
 
@@ -25,14 +31,12 @@ public class ActivityStack {
             .ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            if (activity instanceof AppCompatActivity) {
-                push((AppCompatActivity) activity);
-            }
+            pushInstance(activity);
         }
 
         @Override
         public void onActivityStarted(Activity activity) {
-
+            saveResume(activity);
         }
 
         @Override
@@ -47,7 +51,7 @@ public class ActivityStack {
 
         @Override
         public void onActivityStopped(Activity activity) {
-
+            removeResume(activity);
         }
 
         @Override
@@ -61,39 +65,85 @@ public class ActivityStack {
                 finishCallFromSelf = false;
                 return;
             }
-            if (activity instanceof AppCompatActivity) {
-                pop(lastIndexOf((AppCompatActivity) activity), false);
-            }
+            popInstance(lastIndexOf(activity), false);
         }
     };
 
-    private ActivityStack() {}
+    private ActivityStack() {
+    }
 
     public static void init(Application application) {
+        init(application, false);
+    }
+
+    public static void init(Application application, boolean isDebug) {
+        ActivityStack.isDebug = isDebug;
         application.registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
     }
 
     public interface OnStackChangedListener {
+
         /**
          * 压栈回调
          *
          * @param activity 实例
          */
-        void onPush(AppCompatActivity activity);
+        void onPush(Activity activity);
 
         /**
          * 弹栈回调
          *
          * @param activity 实例
          */
-        void onPop(AppCompatActivity activity);
+        void onPop(Activity activity);
 
         /**
          * 最后一个实例被弹出,会在Onpop之后调用此方法
          *
          * @param lastActivity 最后一个被弹出的实例
          */
-        void onStackGonnaEmpty(AppCompatActivity lastActivity);
+        void onStackGonnaEmpty(Activity lastActivity);
+
+        /**
+         * 当 App 至于后台时回调此方法
+         */
+        void onAppPause();
+
+        /**
+         * 当 App 从后台返回前台时回调此方法
+         */
+        void onAppResume();
+
+    }
+
+    /**
+     * 事件适配器
+     */
+    public static abstract class OnStackChangedAdapter implements OnStackChangedListener {
+        @Override
+        public void onPush(Activity activity) {
+            // Stub
+        }
+
+        @Override
+        public void onPop(Activity activity) {
+            // Stub
+        }
+
+        @Override
+        public void onStackGonnaEmpty(Activity lastActivity) {
+            // Stub
+        }
+
+        @Override
+        public void onAppPause() {
+            // Stub
+        }
+
+        @Override
+        public void onAppResume() {
+            // Stub
+        }
     }
 
     public static void addStackChangedListener(OnStackChangedListener listener) {
@@ -114,43 +164,88 @@ public class ActivityStack {
         }
     }
 
-    private static void notifyPushListener(AppCompatActivity activity) {
-        for (OnStackChangedListener listener : LISTENERS) {
-            try {
-                listener.onPush(activity);
-            } catch (Exception e) {
-                e.printStackTrace();
+    private static void notifyPushListener(final Activity activity) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                for (OnStackChangedListener listener : LISTENERS) {
+                    try {
+                        listener.onPush(activity);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
+        });
     }
 
-    private static void notifyPopListener(AppCompatActivity activity) {
-        for (OnStackChangedListener listener : LISTENERS) {
-            try {
-                listener.onPop(activity);
-            } catch (Exception e) {
-                e.printStackTrace();
+    private static void notifyPopListener(final Activity activity) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                for (OnStackChangedListener listener : LISTENERS) {
+                    try {
+                        listener.onPop(activity);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
+        });
     }
 
-    private static void notifyGonnaEmptyListener(AppCompatActivity activity) {
-        for (OnStackChangedListener listener : LISTENERS) {
-            try {
-                listener.onStackGonnaEmpty(activity);
-            } catch (Exception e) {
-                e.printStackTrace();
+    private static void notifyGonnaEmptyListener(final Activity activity) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                for (OnStackChangedListener listener : LISTENERS) {
+                    try {
+                        listener.onStackGonnaEmpty(activity);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
+        });
+    }
+
+    private static void notifyAppPause() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                for (OnStackChangedListener listener : LISTENERS) {
+                    try {
+                        listener.onAppPause();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+    private static void notifyAppResume() {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                for (OnStackChangedListener listener : LISTENERS) {
+                    try {
+                        listener.onAppResume();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     public static String logStack() {
         StringBuilder builder = new StringBuilder("stack_bottom");
-        for (AppCompatActivity activity : STACK) {
+        for (Activity activity : INSTANCE_STACK) {
             builder.append("->" + activity.getClass().getSimpleName());
         }
         builder.append("->stack_head");
-        L.i("ActivityStack", builder.toString());
+        logI("ActivityStack", builder.toString());
         return builder.toString();
     }
 
@@ -159,10 +254,10 @@ public class ActivityStack {
      *
      * @param activity 需要压栈的Activity对象
      */
-    public static void push(AppCompatActivity activity) {
-        synchronized (STACK) {
-            STACK.add(activity);
-            L.i("ActivityStack", "push:" + activity.getClass().getSimpleName());
+    private static void pushInstance(Activity activity) {
+        synchronized (INSTANCE_STACK) {
+            INSTANCE_STACK.add(activity);
+            logI("ActivityStack", "pushInstance:" + activity.getClass().getSimpleName());
             logStack();
             notifyPushListener(activity);
         }
@@ -173,8 +268,8 @@ public class ActivityStack {
      *
      * @return 栈顶的Activity对象
      */
-    public static AppCompatActivity pop() {
-        AppCompatActivity activity = pop(STACK.size() - 1, false);
+    private static Activity popInstance() {
+        Activity activity = popInstance(INSTANCE_STACK.size() - 1, false);
         return activity;
     }
 
@@ -184,8 +279,8 @@ public class ActivityStack {
      * @param index 栈内下标
      * @return 实例对象
      */
-    public static AppCompatActivity take(int index) {
-        AppCompatActivity activity = STACK.get(index);
+    public static Activity takeInstance(int index) {
+        Activity activity = INSTANCE_STACK.get(index);
         return activity;
     }
 
@@ -194,24 +289,24 @@ public class ActivityStack {
      *
      * @return 实例对象
      */
-    public static AppCompatActivity take() {
-        return take(STACK.size() - 1);
+    public static Activity takeInstance() {
+        return takeInstance(INSTANCE_STACK.size() - 1);
     }
 
     /**
      * 弹栈
      *
-     * @param index 弹出的下标
+     * @param index      弹出的下标
      * @param isClearTop 是否清除(关闭)该下标以上的Activity
      * @return 该index的Activity对象
      */
-    public static AppCompatActivity pop(int index, boolean isClearTop) {
+    public static Activity popInstance(int index, boolean isClearTop) {
         if (index == -1) {
             return null;
         }
-        synchronized (STACK) {
+        synchronized (INSTANCE_STACK) {
             try {
-                AppCompatActivity activity = STACK.remove(index);
+                Activity activity = INSTANCE_STACK.remove(index);
                 if (!activity.isFinishing()) {
                     finishCallFromSelf = true;
                     activity.finish();
@@ -219,7 +314,7 @@ public class ActivityStack {
                 if (isClearTop) {
                     clearUpByIndex(index - 1);
                 }
-                L.i("ActivityStack", "pop:" + activity.getClass().getSimpleName());
+                logI("ActivityStack", "popInstance:" + activity.getClass().getSimpleName());
                 logStack();
                 notifyPopListener(activity);
                 if (size() == 0) {
@@ -239,21 +334,21 @@ public class ActivityStack {
      * @param index 下标
      */
     private static void clearUpByIndex(int index) {
-        synchronized (STACK) {
+        synchronized (INSTANCE_STACK) {
             if (index < 0) {
                 return;
             }
-            if (index >= STACK.size()) {
-                index = STACK.size() - 1;
+            if (index >= INSTANCE_STACK.size()) {
+                index = INSTANCE_STACK.size() - 1;
             }
             for (int i = index; i >= 0; i--) {
-                AppCompatActivity activity = STACK.get(i);
+                Activity activity = INSTANCE_STACK.get(i);
                 activity.finish();
             }
             if (index != 0) {
-                STACK.subList(0, index).clear();
+                INSTANCE_STACK.subList(0, index).clear();
             } else {
-                STACK.clear();
+                INSTANCE_STACK.clear();
             }
         }
     }
@@ -264,19 +359,19 @@ public class ActivityStack {
      * @param isDesc 是否倒序
      */
     public static void exitApplication(boolean isDesc) {
-        synchronized (STACK) {
+        synchronized (INSTANCE_STACK) {
             if (isDesc) {
-                for (int i = STACK.size() - 1; i >= 0; i--) {
-                    AppCompatActivity activity = STACK.get(i);
+                for (int i = INSTANCE_STACK.size() - 1; i >= 0; i--) {
+                    Activity activity = INSTANCE_STACK.get(i);
                     activity.finish();
                 }
             } else {
-                for (int i = 0; i < STACK.size(); i++) {
-                    AppCompatActivity activity = STACK.get(i);
+                for (int i = 0; i < INSTANCE_STACK.size(); i++) {
+                    Activity activity = INSTANCE_STACK.get(i);
                     activity.finish();
                 }
             }
-            STACK.clear();
+            INSTANCE_STACK.clear();
         }
     }
 
@@ -293,7 +388,7 @@ public class ActivityStack {
      * @return Activity实例数
      */
     public static int size() {
-        return STACK.size();
+        return INSTANCE_STACK.size();
     }
 
     /**
@@ -302,8 +397,8 @@ public class ActivityStack {
      * @param activity 实例对象
      * @return 对应栈内的下标数
      */
-    public static int indexOf(AppCompatActivity activity) {
-        return STACK.indexOf(activity);
+    public static int indexOf(Activity activity) {
+        return INSTANCE_STACK.indexOf(activity);
     }
 
     /**
@@ -312,8 +407,8 @@ public class ActivityStack {
      * @param activity 实例对象
      * @return 对应栈内的下标数
      */
-    public static int lastIndexOf(AppCompatActivity activity) {
-        return STACK.lastIndexOf(activity);
+    public static int lastIndexOf(Activity activity) {
+        return INSTANCE_STACK.lastIndexOf(activity);
     }
 
     /**
@@ -322,9 +417,9 @@ public class ActivityStack {
      * @param clz 相应的Activity的Class
      * @return 对应栈内下标数
      */
-    public static int indexOf(Class<? extends AppCompatActivity> clz) {
-        for (int i = 0; i < STACK.size(); i++) {
-            AppCompatActivity activity = STACK.get(i);
+    public static int indexOf(Class<? extends Activity> clz) {
+        for (int i = 0; i < INSTANCE_STACK.size(); i++) {
+            Activity activity = INSTANCE_STACK.get(i);
             activity.getClass().equals(clz);
             return i;
         }
@@ -337,9 +432,9 @@ public class ActivityStack {
      * @param clz 相应的Activity的Class
      * @return 对应栈内下标数
      */
-    public static int lastIndexOf(Class<? extends AppCompatActivity> clz) {
-        for (int i = STACK.size() - 1; i >= 0; i--) {
-            AppCompatActivity activity = STACK.get(i);
+    public static int lastIndexOf(Class<? extends Activity> clz) {
+        for (int i = INSTANCE_STACK.size() - 1; i >= 0; i--) {
+            Activity activity = INSTANCE_STACK.get(i);
             activity.getClass().equals(clz);
             return i;
         }
@@ -352,14 +447,67 @@ public class ActivityStack {
      * @param clz
      * @return 数量
      */
-    public static int sizeOf(Class<? extends AppCompatActivity> clz) {
+    public static int sizeOf(Class<? extends Activity> clz) {
         int count = 0;
-        for (AppCompatActivity activity : STACK) {
+        for (Activity activity : INSTANCE_STACK) {
             if (activity.getClass().equals(clz)) {
                 count++;
             }
         }
         return count;
+    }
+
+    /**
+     * 保存唤醒的 activity
+     *
+     * @param activity
+     */
+    private static void saveResume(Activity activity) {
+        synchronized (RESUME_LIST) {
+            boolean isEmpty = RESUME_LIST.isEmpty();
+            RESUME_LIST.add(activity);
+            if (isEmpty) {
+                logI("ActivityStack", "App resume");
+                isBackground = false;
+                notifyAppResume();
+            } else {
+                logI("ActivityStack", "saveResume:" + activity.getClass().getSimpleName());
+            }
+        }
+    }
+
+    /**
+     * 删除唤醒的 activity
+     *
+     * @param activity
+     */
+    private static void removeResume(Activity activity) {
+        synchronized (RESUME_LIST) {
+            RESUME_LIST.remove(activity);
+            if (RESUME_LIST.isEmpty()) {
+                logI("ActivityStack", "App pause");
+                isBackground = true;
+                notifyAppPause();
+            } else {
+                logI("ActivityStack", "removeResume:" + activity.getClass().getSimpleName());
+            }
+        }
+    }
+
+    /**
+     * 打印调试日志
+     *
+     * @param tag
+     * @param msg
+     */
+    private static void logI(String tag, String msg) {
+        if (isDebug) {
+            Log.i(tag, msg);
+        }
+    }
+
+    public static boolean isBackground() {
+        return isBackground;
     }
 
 }
