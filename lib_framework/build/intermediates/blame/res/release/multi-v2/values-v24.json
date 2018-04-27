@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/values-v24/values-v24.xml",
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/0427a5ab40d879344ddc110e4ac68444/res/values-v24/values-v24.xml",
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/590e4f0c700275053b7e91ffeccfe535/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/values-v24/values-v24.xml",
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -33,10 +33,10 @@
             ]
         },
         {
-            "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/0427a5ab40d879344ddc110e4ac68444/res/values-v24/values-v24.xml",
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/590e4f0c700275053b7e91ffeccfe535/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/values-v24/values-v24.xml",
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

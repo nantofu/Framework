@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 publishing {
     publications {
         Production(MavenPublication) {
-            artifact("$buildDir/outputs/aar/lib_framework-release.aar")
+            artifact("$buildDir/outputs/aar/framework-release.aar")
             groupId project.GROUP_ID
             artifactId project.ARTIFACT_ID
             version project.VERSION

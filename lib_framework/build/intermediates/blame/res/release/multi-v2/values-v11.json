@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v11/values-v11.xml",
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/values-v11/values-v11.xml",
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/values-v11/values-v11.xml",
                     "from": {
                         "startLines": "2,8,14,20,26,32,38,39,43,47,48,52,56,57,61,66,71,76,78,80,81,82,136,191",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -17,10 +17,10 @@
             ]
         },
         {
-            "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/values-v11/values-v11.xml",
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/values-v11/values-v11.xml",
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/values-v11/values-v11.xml",
                     "from": {
                         "startLines": "2,8,14,20,26,32,38,39,43,47,48,52,56,57,61,66,71,76,78,80,81,82,136,191",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

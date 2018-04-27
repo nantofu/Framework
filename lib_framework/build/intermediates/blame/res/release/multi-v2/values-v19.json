@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/values-v19/values-v19.xml",
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v19/values-v19.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values-v19/styles.xml",
+                    "source": "/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values-v19/styles.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -25,10 +25,10 @@
             ]
         },
         {
-            "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v19/values-v19.xml",
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/values-v19/values-v19.xml",
             "map": [
                 {
-                    "source": "/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values-v19/styles.xml",
+                    "source": "/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values-v19/styles.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",

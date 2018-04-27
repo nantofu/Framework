@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/drawable-v21/abc_btn_colored_material.xml"
+        "merged": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/bb0929db65eeb570a34850b18600a52f/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
-        "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/e03ec7271e8060a07f16d80104da9628/res/drawable-v21/notification_action_background.xml"
+        "merged": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/xuhao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/6d9ef1b12e1eea6bd0dfe1f49e0b00e2/res/drawable-v21/abc_edit_text_material.xml"
+        "merged": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/drawable-v21/abc_action_bar_item_background_material.xml"
     }
 ]

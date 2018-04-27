@@ -13,7 +13,7 @@
         errorLine2="    ^"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
             line="47"
             column="5"/>
     </issue>
@@ -30,7 +30,7 @@
         errorLine2="                                        ^"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
             line="61"
             column="41"/>
     </issue>
@@ -47,7 +47,7 @@
         errorLine2="                                                                                                                               ^"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
             line="88"
             column="128"/>
     </issue>
@@ -64,7 +64,7 @@
         errorLine2="                  ^"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
             line="95"
             column="19"/>
     </issue>
@@ -81,7 +81,7 @@
         errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
             line="128"
             column="29"/>
     </issue>
@@ -99,7 +99,7 @@
         errorLine1="        if (activeNetInfo != null) {"
         errorLine2=" ~~~~~~~~~~~">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/NetUtil.java"
             line="131"
             column="2"/>
     </issue>
@@ -107,7 +107,7 @@
     <issue
         id="InlinedApi"
         severity="Warning"
-        message="Field requires API level 20 (current min is 19): `android.Manifest.permission#BODY_SENSORS`"
+        message="Field requires API level 20 (current min is 16): `android.Manifest.permission#BODY_SENSORS`"
         category="Correctness"
         priority="6"
         summary="Using inlined constants on older versions"
@@ -116,7 +116,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/permission/PermissionString.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/permission/PermissionString.java"
             line="30"
             column="9"/>
     </issue>
@@ -135,7 +135,7 @@
         errorLine2="        ~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/build.gradle"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/build.gradle"
             line="7"
             column="9"/>
     </issue>
@@ -151,7 +151,7 @@
         errorLine1="                final Method dispatch = ViewDebug.class.getDeclaredMethod(&quot;dispatchCommand&quot;,"
         errorLine2="                                        ^">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/ViewServer.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/ViewServer.java"
             line="488"
             column="41"/>
     </issue>
@@ -169,37 +169,9 @@
         errorLine1="        View view = LayoutInflater.from(getContext()).inflate(R.layout.progress_dialog_layout, null);"
         errorLine2="                                                                                               ~~~~">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/widget/progressbar/ProgressDialog.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/widget/progressbar/ProgressDialog.java"
             line="35"
             column="96"/>
-    </issue>
-
-    <issue
-        id="ObsoleteSdkInt"
-        severity="Warning"
-        message="Unnecessary; SDK_INT is always >= 19"
-        category="Performance"
-        priority="6"
-        summary="Obsolete SDK_INT Version Check"
-        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
-        errorLine1="        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {"
-        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/activity/BaseActivity.java"
-            line="371"
-            column="13"/>
-    </issue>
-
-    <issue
-        id="ObsoleteSdkInt"
-        severity="Warning"
-        message="This folder configuration (`v19`) is unnecessary; `minSdkVersion` is 19. Merge all the resources in this folder into `values`."
-        category="Performance"
-        priority="6"
-        summary="Obsolete SDK_INT Version Check"
-        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
-        <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values-v19"/>
     </issue>
 
     <issue
@@ -213,7 +185,7 @@
         errorLine1="    private static ViewServer sServer;"
         errorLine2="            ~~~~~~">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/ViewServer.java"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/java/cn/xuhao/android/lib/utils/ViewServer.java"
             line="87"
             column="13"/>
     </issue>
@@ -230,7 +202,7 @@
         errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/arrays_wheel.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/arrays_wheel.xml"
             line="3"
             column="19"/>
     </issue>
@@ -247,7 +219,7 @@
         errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/arrays_wheel.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/arrays_wheel.xml"
             line="29"
             column="19"/>
     </issue>
@@ -264,7 +236,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/colors.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/colors.xml"
             line="3"
             column="12"/>
     </issue>
@@ -281,7 +253,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/colors.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/colors.xml"
             line="4"
             column="12"/>
     </issue>
@@ -298,7 +270,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/dimens_wheel.xml"
             line="3"
             column="12"/>
     </issue>
@@ -315,7 +287,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/dimens_wheel.xml"
             line="4"
             column="12"/>
     </issue>
@@ -332,7 +304,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/dimens_wheel.xml"
             line="5"
             column="12"/>
     </issue>
@@ -349,7 +321,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/dimens_wheel.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/dimens_wheel.xml"
             line="6"
             column="12"/>
     </issue>
@@ -366,11 +338,11 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/styles.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/styles.xml"
             line="3"
             column="12"/>
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values-v19/styles.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values-v19/styles.xml"
             line="4"
             column="12"/>
     </issue>
@@ -387,7 +359,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/styles.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/styles.xml"
             line="6"
             column="12"/>
     </issue>
@@ -404,7 +376,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/styles.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/styles.xml"
             line="13"
             column="12"/>
     </issue>
@@ -421,7 +393,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/styles.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/styles.xml"
             line="18"
             column="12"/>
     </issue>
@@ -438,7 +410,7 @@
         errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/styles.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/styles.xml"
             line="20"
             column="12"/>
     </issue>
@@ -457,7 +429,7 @@
         errorLine2="                                      ^"
         quickfix="studio">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/values/strings.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/values/strings.xml"
             line="3"
             column="39"/>
     </issue>
@@ -465,7 +437,7 @@
     <issue
         id="RtlHardcoded"
         severity="Warning"
-        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;5dp&quot;` to better support right-to-left layouts"
+        message="Consider adding `android:layout_marginStart=&quot;5dp&quot;` to better support right-to-left layouts"
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
@@ -473,7 +445,7 @@
         errorLine1="        android:layout_marginLeft=&quot;5dp&quot;/>"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/layout/progress_dialog_layout.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/layout/progress_dialog_layout.xml"
             line="14"
             column="9"/>
     </issue>
@@ -481,7 +453,7 @@
     <issue
         id="RtlHardcoded"
         severity="Warning"
-        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;15dp&quot;` to better support right-to-left layouts"
+        message="Consider adding `android:layout_marginStart=&quot;15dp&quot;` to better support right-to-left layouts"
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
@@ -489,7 +461,7 @@
         errorLine1="        android:layout_marginLeft=&quot;15dp&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/layout/progress_dialog_layout.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/layout/progress_dialog_layout.xml"
             line="21"
             column="9"/>
     </issue>
@@ -497,7 +469,7 @@
     <issue
         id="RtlHardcoded"
         severity="Warning"
-        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;5dp&quot;` to better support right-to-left layouts"
+        message="Consider adding `android:layout_marginEnd=&quot;5dp&quot;` to better support right-to-left layouts"
         category="Internationalization:Bidirectional Text"
         priority="5"
         summary="Using left/right instead of start/end attributes"
@@ -505,7 +477,7 @@
         errorLine1="        android:layout_marginRight=&quot;5dp&quot;"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/res/layout/progress_dialog_layout.xml"
+            file="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/res/layout/progress_dialog_layout.xml"
             line="22"
             column="9"/>
     </issue>

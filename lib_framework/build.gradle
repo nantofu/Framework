@@ -5,6 +5,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
+        project.archivesBaseName = project.ARTIFACT_ID
     }
     lintOptions {
         abortOnError false

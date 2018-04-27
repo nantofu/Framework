@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/xuhao/Documents/publish_project/framework/lib_framework/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/didi/Documents/publish_project/Framework/lib_framework/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/didi/Documents/publish_project/Framework/lib_framework/src/release/jniLibs"/></dataSet></merger>
