@@ -1,37 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
+ADDED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
 	package
-		ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:11-41
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-	android:versionName
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-	android:versionCode
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:1:1-9:12
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
+		ADDED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml:1:11-41
+		INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+		INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
 application
-ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml:4:5-7:19
+ADDED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml:4:5-7:19
 uses-sdk
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
+		INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+		ADDED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+		INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		ADDED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
-		INJECTED from /Users/xuhao/Documents/publish_project/framework/lib_framework/src/main/AndroidManifest.xml
+		INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+		ADDED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml
+		INJECTED from /Users/didi/Documents/publish_project/Framework/lib_framework/src/main/AndroidManifest.xml

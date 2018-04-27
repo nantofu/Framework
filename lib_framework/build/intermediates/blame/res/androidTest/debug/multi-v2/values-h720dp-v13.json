@@ -1,6 +1,21 @@
 {
     "logs": [
         {
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/didi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e9c570c6dde8559abb0ab884b7d9bd4d/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/xuhao/Documents/publish_project/framework/lib_framework/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {

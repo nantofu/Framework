@@ -15,6 +15,22 @@
                     }
                 }
             ]
+        },
+        {
+            "outputFile": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v19/values-v19.xml",
+            "map": [
+                {
+                    "source": "/Users/didi/Documents/publish_project/Framework/lib_framework/build/intermediates/bundles/debug/res/values-v19/values-v19.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "3",
+                        "endColumns": "12",
+                        "endOffsets": "144"
+                    }
+                }
+            ]
         }
     ]
 }
