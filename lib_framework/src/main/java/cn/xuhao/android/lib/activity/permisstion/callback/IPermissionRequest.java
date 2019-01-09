@@ -1,4 +1,4 @@
-package cn.xuhao.android.lib.permission;
+package cn.xuhao.android.lib.activity.permisstion.callback;
 
 /**
  * Created by xuhao on 2017/3/18.

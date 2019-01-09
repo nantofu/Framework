@@ -2,31 +2,27 @@ package cn.xuhao.android.lib.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import cn.xuhao.android.lib.activity.permisstion.PermissionToolsCompat;
+import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
+import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
 import cn.xuhao.android.lib.observer.action.IActionObservable;
 import cn.xuhao.android.lib.observer.action.IActionObserver;
 import cn.xuhao.android.lib.observer.lifecycle.ILifecycleObservable;
 import cn.xuhao.android.lib.observer.lifecycle.ILifecycleObserver;
 import cn.xuhao.android.lib.observer.lifecycle.LifecycleObserverCompat;
-import cn.xuhao.android.lib.permission.IPermissionRequest;
-import cn.xuhao.android.lib.permission.PermissionCallback;
-import cn.xuhao.android.lib.permission.PermissionString;
 
 /**
  * Created by xuhao on 15/10/12.
@@ -37,9 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
 
     protected LayoutInflater mInflater = null;
 
-    private SparseArray<PermissionCallback> mCallbackArray = new SparseArray<>();
-
-    private volatile int mRequestCode = 9999;
+    private PermissionToolsCompat mPermissionToolsCompat;
 
     private boolean mIsDestory;
 
@@ -72,6 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
 
     @CallSuper
     protected void initBaseSelf() {
+        mPermissionToolsCompat = new PermissionToolsCompat(this);
         mActionObserverCompat = new ActionObserverCompat();
         mLifeObserverCompat = new LifecycleObserverCompat();
     }
@@ -221,54 +216,16 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
     /**
      * 申请运行时权限
      *
-     * @param callback 权限回调,如果在低于6.0(Marshmallow)将直接回调{@link PermissionCallback#onGranted(String...)}
+     * @param callback    权限回调,如果在低于6.0(Marshmallow)将直接回调{@link PermissionCallback#onGranted(List)}}
      * @param permissions 权限列表,详见{@link android.Manifest.permission}
      */
     public final void requestPermission(@Nullable final PermissionCallback callback,
-            @PermissionString final String... permissions) {
-        if (permissions == null || permissions.length == 0) {
-            return;
-        }
-        //先判断是否需要申请权限
-        boolean needGranted = false;
-        //先判断系统版本
-        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            if (callback != null) {
-                callback.onGranted(permissions);
-            }
-            return;
-        }
-        //判断权限
-        needGranted = !checkPermissionsIsGranted(permissions);
-        if (needGranted) {//申请权限
-            boolean needAlert = false;
-            for (String permission : permissions) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
-                    needAlert = true;
-                    break;
-                }
-            }
+                                        @PermissionString final String... permissions) {
+        mPermissionToolsCompat.requestPermission(callback, permissions);
+    }
 
-            IPermissionRequest request = new IPermissionRequest() {
-                @Override
-                public void proceed() {
-                    synchronized (mCallbackArray) {
-                        mCallbackArray.put(mRequestCode, callback);
-                    }
-                    ActivityCompat.requestPermissions(BaseActivity.this, permissions, mRequestCode);
-                    mRequestCode++;
-                }
-            };
-            if (callback != null) {//根据返回值判断是否申请
-                callback.onBeforeGranted(needAlert, request, permissions);
-            } else {//直接进行申请
-                request.proceed();
-            }
-        } else {
-            if (callback != null) {
-                callback.onGranted(permissions);
-            }
-        }
+    public final void launchPermissionSetting() {
+        mPermissionToolsCompat.launchPermissionSettingPageOnThePhone(this);
     }
 
     /**
@@ -278,57 +235,15 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
      * @return true已授权, false有未授权的权限
      */
     public final boolean checkPermissionsIsGranted(String... permissionGroup) {
-        if (permissionGroup != null) {
-            for (String permission : permissionGroup) {
-                if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    private final boolean verifyPermissions(int[] grantResults) {
-        if (grantResults.length < 1) {
-            return false;
-        }
-
-        for (int result : grantResults) {
-            if (result != PackageManager.PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
+        return mPermissionToolsCompat.checkPermissionsIsGranted(permissionGroup);
     }
 
     @Override
     @CallSuper
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-            @NonNull int[] grantResults) {
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        PermissionCallback callback = mCallbackArray.get(requestCode);
-        if (callback != null) {
-            //授权与拒绝分类
-            List<String> grantedList = new ArrayList<>();
-            List<String> refuseList = new ArrayList<>();
-            for (int i = 0; i < grantResults.length && i < permissions.length; i++) {
-                int grantResult = grantResults[i];
-                if (grantResult == PackageManager.PERMISSION_GRANTED) {//授权
-                    grantedList.add(permissions[i]);
-                } else {//拒绝
-                    refuseList.add(permissions[i]);
-                }
-            }
-            if (!grantedList.isEmpty()) {
-                callback.onGranted(grantedList.toArray(new String[]{}));
-            }
-            if (!refuseList.isEmpty()) {
-                callback.onRefuse(refuseList.toArray(new String[]{}));
-            }
-            synchronized (mCallbackArray) {
-                mCallbackArray.remove(requestCode);
-            }
-        }
+        mPermissionToolsCompat.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
@@ -395,9 +310,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
     /**
      * startForResult的回调方法,取代了系统的OnActivityResult
      *
-     * @param requestCode 与系统相同
-     * @param resultCode 与系统相同
-     * @param data 与系统相同
+     * @param requestCode       与系统相同
+     * @param resultCode        与系统相同
+     * @param data              与系统相同
      * @param isFragmentSponsor 发起这次StartForResult的是否是fragment
      * @return true表示消费了此次回调, 将不会通知Fragment及子Fragment.false反之
      */

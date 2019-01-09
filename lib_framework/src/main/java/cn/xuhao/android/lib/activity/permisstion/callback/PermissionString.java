@@ -1,4 +1,4 @@
-package cn.xuhao.android.lib.permission;
+package cn.xuhao.android.lib.activity.permisstion.callback;
 
 import android.Manifest;
 import android.annotation.TargetApi;
