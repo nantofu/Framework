@@ -28,7 +28,7 @@ import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.activity.permisstion.utils.ManufacturerUtils;
 
-public class PermissionCompat {
+public class PermissionCompat implements IPermissionCompat{
 
     private Activity mActivity;
 

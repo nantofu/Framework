@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import cn.xuhao.android.lib.activity.permisstion.IPermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.PermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
@@ -28,7 +29,7 @@ import cn.xuhao.android.lib.observer.lifecycle.LifecycleObserverCompat;
  * Created by xuhao on 15/10/12.
  */
 public abstract class BaseFragment extends Fragment implements ILifecycleObservable, IActionObservable,
-        IActionObserver {
+        IActionObserver, IPermissionCompat {
 
     private View root;
 
@@ -252,7 +253,7 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
      * @param permissions 权限列表,详见{@link android.Manifest.permission}
      * @return true 代表所有权限均已授予,false代表其中有权限没有授予
      */
-    public final boolean checkPermissionGranted(String... permissions) {
+    public final boolean checkPermissionsIsGranted(String... permissions) {
         return mPermissionCompat.checkPermissionsIsGranted(permissions);
     }
 

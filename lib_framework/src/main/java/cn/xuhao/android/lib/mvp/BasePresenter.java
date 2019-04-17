@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 
 import java.util.List;
 
+import cn.xuhao.android.lib.activity.permisstion.IPermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
@@ -27,7 +28,7 @@ import cn.xuhao.android.lib.observer.lifecycle.LifecycleObserverCompat;
  */
 
 public abstract class BasePresenter<T extends IBaseView>
-        implements IComponentLifecycleObserver, ILifecycleObservable, IActionObservable, IActionObserver {
+        implements IComponentLifecycleObserver, ILifecycleObservable, IActionObservable, IActionObserver, IPermissionCompat {
 
     protected T mView;
 
@@ -166,10 +167,10 @@ public abstract class BasePresenter<T extends IBaseView>
      * @param permissions 权限列表,详见{@link android.Manifest.permission}
      */
     public final void requestPermission(@Nullable final PermissionCallback callback, @PermissionString final String... permissions) {
-        if (getContext() == null) {
+        if (!(getContext() instanceof IPermissionCompat)) {
             return;
         }
-
+        ((IPermissionCompat) getContext()).requestPermission(callback, permissions);
     }
 
     /**
@@ -178,11 +179,12 @@ public abstract class BasePresenter<T extends IBaseView>
      * @param permissions 权限列表,详见{@link android.Manifest.permission}
      * @return true 代表所有权限均已授予,false代表其中有权限没有授予
      */
-    public final boolean checkPermissionGranted(String... permissions) {
-        if (getContext() == null) {
+    public final boolean checkPermissionsIsGranted(String... permissions) {
+        if (!(getContext() instanceof IPermissionCompat)) {
             return false;
         }
 
+        return ((IPermissionCompat) getContext()).checkPermissionsIsGranted(permissions);
     }
 
     @Override

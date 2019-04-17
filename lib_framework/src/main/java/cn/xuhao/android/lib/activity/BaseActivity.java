@@ -14,6 +14,7 @@ import android.view.View;
 
 import java.util.List;
 
+import cn.xuhao.android.lib.activity.permisstion.IPermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.PermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
@@ -27,7 +28,7 @@ import cn.xuhao.android.lib.observer.lifecycle.LifecycleObserverCompat;
 /**
  * Created by xuhao on 15/10/12.
  */
-public abstract class BaseActivity extends AppCompatActivity implements ILifecycleObservable, IActionObservable {
+public abstract class BaseActivity extends AppCompatActivity implements ILifecycleObservable, IActionObservable, IPermissionCompat {
 
     protected View mInnerLayout = null;
 
@@ -222,10 +223,6 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
     public final void requestPermission(@Nullable final PermissionCallback callback,
                                         @PermissionString final String... permissions) {
         mPermissionCompat.requestPermission(callback, permissions);
-    }
-
-    public final void launchPermissionSetting() {
-        mPermissionCompat.launchPermissionSettingPageOnThePhone(this);
     }
 
     /**
