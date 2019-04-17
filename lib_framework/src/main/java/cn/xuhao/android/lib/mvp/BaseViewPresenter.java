@@ -1,4 +1,4 @@
-package cn.xuhao.android.lib.presenter;
+package cn.xuhao.android.lib.mvp;
 
 import android.content.Context;
 import android.support.annotation.CallSuper;
@@ -11,11 +11,11 @@ import cn.xuhao.android.lib.observer.lifecycle.ILifecycleObserver;
  * Created by xuhao on 2017/4/19.
  */
 
-public abstract class AbsViewPresenter<T extends IBaseView> implements ILifecycleObserver {
+public abstract class BaseViewPresenter<T extends IBaseView> implements ILifecycleObserver {
 
     protected T mView;
 
-    public AbsViewPresenter(@NonNull T view) {
+    public BaseViewPresenter(@NonNull T view) {
         mView = view;
         mView.addLifecycleObserver(this);
     }

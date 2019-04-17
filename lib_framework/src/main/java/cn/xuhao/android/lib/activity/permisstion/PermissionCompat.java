@@ -28,7 +28,7 @@ import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.activity.permisstion.utils.ManufacturerUtils;
 
-public class PermissionToolsCompat {
+public class PermissionCompat {
 
     private Activity mActivity;
 
@@ -40,7 +40,7 @@ public class PermissionToolsCompat {
 
     private SharedPreferences mSp;
 
-    public PermissionToolsCompat(Activity activity) {
+    public PermissionCompat(Activity activity) {
         mActivity = activity;
         mSp = mActivity.getSharedPreferences("framework_permission_tools_sp", Activity.MODE_PRIVATE);
     }

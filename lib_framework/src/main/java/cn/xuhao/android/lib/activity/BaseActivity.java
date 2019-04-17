@@ -14,7 +14,7 @@ import android.view.View;
 
 import java.util.List;
 
-import cn.xuhao.android.lib.activity.permisstion.PermissionToolsCompat;
+import cn.xuhao.android.lib.activity.permisstion.PermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
@@ -33,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
 
     protected LayoutInflater mInflater = null;
 
-    private PermissionToolsCompat mPermissionToolsCompat;
+    private PermissionCompat mPermissionCompat;
 
     private boolean mIsDestory;
 
@@ -66,7 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
 
     @CallSuper
     protected void initBaseSelf() {
-        mPermissionToolsCompat = new PermissionToolsCompat(this);
+        mPermissionCompat = new PermissionCompat(this);
         mActionObserverCompat = new ActionObserverCompat();
         mLifeObserverCompat = new LifecycleObserverCompat();
     }
@@ -84,7 +84,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
      */
     protected void inflateContentView() {
         mInflater = LayoutInflater.from(this);
-        setContentView(getBasicContentLayoutResId());
+        setContentView(getContentLayoutResId());
     }
 
     /**
@@ -118,7 +118,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
      * @return 布局ResID
      */
     @LayoutRes
-    protected abstract int getBasicContentLayoutResId();
+    protected abstract int getContentLayoutResId();
 
     /**
      * 初始化所有的view从ContentLayout中
@@ -221,11 +221,11 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
      */
     public final void requestPermission(@Nullable final PermissionCallback callback,
                                         @PermissionString final String... permissions) {
-        mPermissionToolsCompat.requestPermission(callback, permissions);
+        mPermissionCompat.requestPermission(callback, permissions);
     }
 
     public final void launchPermissionSetting() {
-        mPermissionToolsCompat.launchPermissionSettingPageOnThePhone(this);
+        mPermissionCompat.launchPermissionSettingPageOnThePhone(this);
     }
 
     /**
@@ -235,7 +235,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
      * @return true已授权, false有未授权的权限
      */
     public final boolean checkPermissionsIsGranted(String... permissionGroup) {
-        return mPermissionToolsCompat.checkPermissionsIsGranted(permissionGroup);
+        return mPermissionCompat.checkPermissionsIsGranted(permissionGroup);
     }
 
     @Override
@@ -243,7 +243,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ILifecyc
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        mPermissionToolsCompat.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mPermissionCompat.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override

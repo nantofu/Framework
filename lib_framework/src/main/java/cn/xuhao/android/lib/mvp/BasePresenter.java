@@ -1,4 +1,4 @@
-package cn.xuhao.android.lib.presenter;
+package cn.xuhao.android.lib.mvp;
 
 
 import android.app.Activity;
@@ -6,10 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
-import cn.xuhao.android.lib.UIStuff;
+import java.util.List;
+
+import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
+import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
 import cn.xuhao.android.lib.observer.action.IActionObservable;
 import cn.xuhao.android.lib.observer.action.IActionObserver;
@@ -22,8 +26,8 @@ import cn.xuhao.android.lib.observer.lifecycle.LifecycleObserverCompat;
  * @author xuhao
  */
 
-public abstract class AbsPresenter<T extends IBaseView>
-        implements IComponentLifecycleObserver, ILifecycleObservable, IActionObservable, UIStuff, IActionObserver {
+public abstract class BasePresenter<T extends IBaseView>
+        implements IComponentLifecycleObserver, ILifecycleObservable, IActionObservable, IActionObserver {
 
     protected T mView;
 
@@ -31,7 +35,7 @@ public abstract class AbsPresenter<T extends IBaseView>
 
     private ActionObserverCompat mActionObserverCompat;
 
-    public AbsPresenter(@NonNull T view) {
+    public BasePresenter(@NonNull T view) {
         mView = view;
 
         mLifeObserverCompat = new LifecycleObserverCompat();
@@ -155,68 +159,30 @@ public abstract class AbsPresenter<T extends IBaseView>
         return getContext().getString(resId, args);
     }
 
-    @Override
-    public final void showPDialog() {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showPDialog();
+    /**
+     * 申请运行时权限
+     *
+     * @param callback    权限回调,如果在低于6.0(Marshmallow)将直接回调{@link PermissionCallback#onGranted(List)}}
+     * @param permissions 权限列表,详见{@link android.Manifest.permission}
+     */
+    public final void requestPermission(@Nullable final PermissionCallback callback, @PermissionString final String... permissions) {
+        if (getContext() == null) {
+            return;
         }
+
     }
 
-    @Override
-    public final void showPDialog(String msg) {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showPDialog(msg);
+    /**
+     * 检查运行时权限是否授予
+     *
+     * @param permissions 权限列表,详见{@link android.Manifest.permission}
+     * @return true 代表所有权限均已授予,false代表其中有权限没有授予
+     */
+    public final boolean checkPermissionGranted(String... permissions) {
+        if (getContext() == null) {
+            return false;
         }
-    }
 
-    @Override
-    public final void showPDialog(String msg, boolean cancelable) {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showPDialog(msg, cancelable);
-        }
-    }
-
-    @Override
-    public final void closePDialog() {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).closePDialog();
-        }
-    }
-
-    @Override
-    public final boolean isWaitDialogShowing() {
-        if (mView instanceof UIStuff) {
-            return ((UIStuff) mView).isWaitDialogShowing();
-        }
-        return false;
-    }
-
-    @Override
-    public final void showToast(String msg) {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showToast(msg);
-        }
-    }
-
-    @Override
-    public void showToast(@StringRes int resId) {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showToast(resId);
-        }
-    }
-
-    @Override
-    public void showToast(@StringRes int resId, int time) {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showToast(resId, time);
-        }
-    }
-
-    @Override
-    public final void showToast(String msg, int time) {
-        if (mView instanceof UIStuff) {
-            ((UIStuff) mView).showToast(msg, time);
-        }
     }
 
     @Override

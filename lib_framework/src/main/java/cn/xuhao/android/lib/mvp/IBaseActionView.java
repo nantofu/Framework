@@ -1,4 +1,4 @@
-package cn.xuhao.android.lib.presenter;
+package cn.xuhao.android.lib.mvp;
 
 import cn.xuhao.android.lib.observer.action.IActionObservable;
 import cn.xuhao.android.lib.observer.action.IActionObserver;

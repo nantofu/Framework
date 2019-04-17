@@ -1,7 +1,6 @@
 package cn.xuhao.android.lib.fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
@@ -15,7 +14,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import cn.xuhao.android.lib.activity.permisstion.PermissionToolsCompat;
+import cn.xuhao.android.lib.activity.permisstion.PermissionCompat;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
 import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
@@ -39,12 +38,12 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
 
     protected Activity mActivity;
 
-    private PermissionToolsCompat mPermissionToolsCompat;
+    private PermissionCompat mPermissionCompat;
 
     @Override
     public final View onCreateView(LayoutInflater inflater, ViewGroup container,
                                    Bundle savedInstanceState) {
-        View rootView = inflater.inflate(getLayoutRes(), container, false);
+        View rootView = inflater.inflate(getLayoutResId(), container, false);
         this.root = rootView;
         return rootView;
     }
@@ -99,7 +98,7 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
      * @return 布局ResID
      */
     @LayoutRes
-    protected abstract int getLayoutRes();
+    protected abstract int getLayoutResId();
 
     /**
      * 处理传入参数,初始化传入参数
@@ -201,7 +200,7 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActivity = getActivity();
-        mPermissionToolsCompat = new PermissionToolsCompat(activity);
+        mPermissionCompat = new PermissionCompat(activity);
         addParentActionObserver();
     }
 
@@ -244,7 +243,7 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
      * @param permissions 权限列表,详见{@link android.Manifest.permission}
      */
     public final void requestPermission(@Nullable final PermissionCallback callback, @PermissionString final String... permissions) {
-        mPermissionToolsCompat.requestPermission(callback, permissions);
+        mPermissionCompat.requestPermission(callback, permissions);
     }
 
     /**
@@ -254,7 +253,7 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
      * @return true 代表所有权限均已授予,false代表其中有权限没有授予
      */
     public final boolean checkPermissionGranted(String... permissions) {
-        return mPermissionToolsCompat.checkPermissionsIsGranted(permissions);
+        return mPermissionCompat.checkPermissionsIsGranted(permissions);
     }
 
     @Override

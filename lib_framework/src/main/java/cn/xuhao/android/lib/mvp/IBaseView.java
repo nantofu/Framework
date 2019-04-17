@@ -1,4 +1,4 @@
-package cn.xuhao.android.lib.presenter;
+package cn.xuhao.android.lib.mvp;
 
 import android.content.Context;
 
