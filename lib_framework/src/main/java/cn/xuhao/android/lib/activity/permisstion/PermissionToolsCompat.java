@@ -42,11 +42,10 @@ public class PermissionToolsCompat {
 
     public PermissionToolsCompat(Activity activity) {
         mActivity = activity;
-        mSp = mActivity.getSharedPreferences("permission_toools_sp", Activity.MODE_PRIVATE);
+        mSp = mActivity.getSharedPreferences("framework_permission_tools_sp", Activity.MODE_PRIVATE);
     }
 
-    public void requestPermission(@Nullable final PermissionCallback callback,
-                                  @PermissionString final String... permissions) {
+    public void requestPermission(@Nullable final PermissionCallback callback, @PermissionString final String... permissions) {
         if (permissions == null || permissions.length == 0) {
             return;
         }
