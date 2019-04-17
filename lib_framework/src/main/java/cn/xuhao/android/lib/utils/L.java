@@ -8,6 +8,10 @@ import android.util.Log;
  * Created by xuhao on 2017/4/3.
  */
 public class L {
+
+    private static class Debug{
+        public static boolean isDebug = true;
+    }
     public static final String DEFAULT_TAG = "SQYC_TAG";
 
     public static void i(String tag, String msg) {

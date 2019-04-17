@@ -1,6 +1,7 @@
 package cn.xuhao.android.lib.fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
@@ -12,6 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
+import cn.xuhao.android.lib.activity.permisstion.PermissionToolsCompat;
+import cn.xuhao.android.lib.activity.permisstion.callback.PermissionCallback;
+import cn.xuhao.android.lib.activity.permisstion.callback.PermissionString;
 import cn.xuhao.android.lib.observer.action.ActionObserverCompat;
 import cn.xuhao.android.lib.observer.action.IActionObservable;
 import cn.xuhao.android.lib.observer.action.IActionObserver;
@@ -33,9 +39,11 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
 
     protected Activity mActivity;
 
+    private PermissionToolsCompat mPermissionToolsCompat;
+
     @Override
     public final View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                                   Bundle savedInstanceState) {
         View rootView = inflater.inflate(getLayoutRes(), container, false);
         this.root = rootView;
         return rootView;
@@ -189,13 +197,16 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
 
 
     @Override
+    @CallSuper
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActivity = getActivity();
+        mPermissionToolsCompat = new PermissionToolsCompat(activity);
         addParentActionObserver();
     }
 
     @Override
+    @CallSuper
     public void onDetach() {
         removeParentActionObserver();
         super.onDetach();
@@ -224,6 +235,26 @@ public abstract class BaseFragment extends Fragment implements ILifecycleObserva
         } else if (mActivity instanceof IActionObservable) {
             ((IActionObservable) mActivity).removeActionObserver(this);
         }
+    }
+
+    /**
+     * 申请运行时权限
+     *
+     * @param callback    权限回调,如果在低于6.0(Marshmallow)将直接回调{@link PermissionCallback#onGranted(List)}}
+     * @param permissions 权限列表,详见{@link android.Manifest.permission}
+     */
+    public final void requestPermission(@Nullable final PermissionCallback callback, @PermissionString final String... permissions) {
+        mPermissionToolsCompat.requestPermission(callback, permissions);
+    }
+
+    /**
+     * 检查运行时权限是否授予
+     *
+     * @param permissions 权限列表,详见{@link android.Manifest.permission}
+     * @return true 代表所有权限均已授予,false代表其中有权限没有授予
+     */
+    public final boolean checkPermissionGranted(String... permissions) {
+        return mPermissionToolsCompat.checkPermissionsIsGranted(permissions);
     }
 
     @Override
